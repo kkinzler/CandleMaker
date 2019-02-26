@@ -47,7 +47,7 @@ def initHourTwentyFour(row):
     hourTwentyFourClose = 0.0
     hourTwentyFourHigh = price
     hourTwentyFourLow = price
-    hourTwentyFour = getTime(row, 0, 1)
+    hourTwentyFour = getTime(row, 0, 1) 
 
     return 1
 
@@ -63,21 +63,23 @@ def checkHourTwentyFour(row, lastRow):
         return 0
 
     global hourTwentyFourOpen
+    global hourTwentyFour
     if hourTwentyFourOpen == 0.0:
         hourTwentyFourOpen = getPrice(row)
 
     setBounds(row)
     currentTime = getTime(row, 0, 1) 
+    if currentTime == 23:
+        hourTwentyFour = 23
 
-    if (currentTime == 0 or lastRow == 1): 
+    if ((currentTime < hourTwentyFour) or lastRow == 1): 
+        
         writeHourTwentyFourBar(row)
         global hourTwentyFourCount
         hourTwentyFourCount += 1
 
         initHourTwentyFour(row)
         hourTwentyFourOpen = 0.0
-
-    if (currentTime > hourTwentyFour or (hourTwentyFour == 16 and currentTime < hourTwentyFour) or (hourTwentyFour == 23 and currentTime < hourTwentyFour)):
 
     return 1
     
@@ -120,3 +122,6 @@ def setBounds(row):
         hourTwentyFourLow = price
     if hourTwentyFourHigh < price:
         hourTwentyFourHigh = price
+
+def getHourTwentyFour():
+    return hourTwentyFourCount

@@ -71,7 +71,7 @@ def checkMinSixteen(row):
     
 
     currentTime = getTime(row, 1, 0)    
-    if (currentTime >= minSixteen + 16 or (minSixteen >= 47 and currentTime < minSixteen)):
+    if (currentTime >= minSixteen + 16 or (minSixteen >= 43 and currentTime < minSixteen)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
@@ -127,3 +127,6 @@ def setBounds(row):
         minSixteenLow = price
     if minSixteenHigh < price:
         minSixteenHigh = price
+
+def getMinSixteen():
+    return minSixteenCount

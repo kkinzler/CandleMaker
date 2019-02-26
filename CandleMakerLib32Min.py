@@ -70,7 +70,7 @@ def checkMinThirtyTwo(row):
     
 
     currentTime = getTime(row, 1, 0)    
-    if (currentTime >= minThirtyTwo + 32 or (minThirtyTwo >= 29 and currentTime < minThirtyTwo)):
+    if (currentTime >= minThirtyTwo + 32 or (minThirtyTwo >= 27 and currentTime < minThirtyTwo)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
@@ -126,3 +126,6 @@ def setBounds(row):
         minThirtyTwoLow = price
     if minThirtyTwoHigh < price:
         minThirtyTwoHigh = price
+
+def getMinThirtyTwo():
+    return minThirtyTwoCount

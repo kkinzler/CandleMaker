@@ -70,7 +70,7 @@ def checkMinEight(row):
     
 
     currentTime = getTime(row, 1, 0)    
-    if (currentTime >= minEight + 8 or (minEight >= 52 and currentTime < minEight)):
+    if (currentTime >= minEight + 8 or (minEight >= 51 and currentTime < minEight)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
@@ -127,3 +127,6 @@ def setBounds(row):
         minEightLow = price
     if minEightHigh < price:
         minEightHigh = price
+
+def getMinEight():
+    return minEightCount

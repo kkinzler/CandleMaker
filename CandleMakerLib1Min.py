@@ -73,9 +73,9 @@ def checkMinOne(row):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
-        if (minOne >= 50 and currentTime < minOne):
-            print ("minuteOne data had a ten minute gap in data") 
-            print ("minOne: ", minOne, "    currentTime: ", currentTime)
+        #if (minOne >= 50 and currentTime < minOne):
+        #    print ("minuteOne data had a ten minute gap in data") 
+        #    print ("minOne: ", minOne, "    currentTime: ", currentTime)
 
         writeMinOneBar(row)
 
@@ -125,3 +125,6 @@ def setBounds(row):
         minOneLow = price
     if minOneHigh < price:
         minOneHigh = price
+
+def getMinOne():
+    return minOneCount

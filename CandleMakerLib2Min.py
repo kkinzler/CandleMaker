@@ -71,13 +71,13 @@ def checkMinTwo(row):
     
 
     currentTime = getTime(row, 1, 0)    
-    if (currentTime >= minTwo + 2 or (minTwo >= 50 and currentTime < minTwo)):
+    if (currentTime >= minTwo + 2 or (minTwo >= 55 and currentTime < minTwo)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
-        if (minTwo >= 50 and currentTime < minTwo):
-            print ("minuteTwo data had a ten minute gap in data") 
-            print ("minTwo: ", minTwo, "    currentTime: ", currentTime)
+        #if (minTwo >= 50 and currentTime < minTwo):
+        #    print ("minuteTwo data had a ten minute gap in data") 
+        #    print ("minTwo: ", minTwo, "    currentTime: ", currentTime)
 
         writeMinTwoBar(row)
 
@@ -127,3 +127,6 @@ def setBounds(row):
         minTwoLow = price
     if minTwoHigh < price:
         minTwoHigh = price
+
+def getMinTwo():
+    return minTwoCount

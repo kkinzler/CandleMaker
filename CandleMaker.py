@@ -18,9 +18,9 @@ from CandleMakerLib32Min import *
 from CandleMakerLib1Hour import *
 from CandleMakerLib2Hour import *
 from CandleMakerLib4Hour import *
-from CandleMakerLib8Hour import *
 from CandleMakerLib12Hour import *
 from CandleMakerLib24Hour import *
+
 
 #boolean values for 1min, 3min, ...4hr, 1day etc is
 #initialized to false and set to true when a row 
@@ -45,65 +45,65 @@ with open('EUR_USD_Week1.csv') as f:
     initHourOne(firstRow)
     initHourTwo(firstRow)
     initHourFour(firstRow)
-    initHourEight(firstRow)
     initHourTwelve(firstRow)
     initHourTwentyFour(firstRow)
 
-    holdRow = {}
+    holdRow = [] 
 
     for row in readCSV:
         
-        #checkMinOne(row)
-        #checkMinTwo(row)
-        #checkMinFour(row)
-        #checkMinEight(row)
+        
+        checkMinOne(row)
+        checkMinTwo(row)
+        checkMinFour(row)
+        checkMinEight(row)
         checkMinSixteen(row)
         checkMinThirtyTwo(row)
 
-        checkHourOne(row)
-        checkHourTwo(row)
-        checkHourFour(row)
-        checkHourEight(row)
-        checkHourTwelve(row)
-        checkMinTwentyFour(row, 0)
+        checkHourOne(row, 0)
+        checkHourTwo(row, 0)
+        checkHourFour(row, 0)
+        checkHourTwelve(row, 0)
+        
+        checkHourTwentyFour(row, 0)
+        
 
         holdRow = row
 
-        print ("minOneCount == ", minOneCount) 
-        print ("minTwoCount == ", minTwoCount) 
-        print ("minFourCount == ", minFourCount) 
-        print ("minEightCount == ", minEightCount) 
-        print ("minSixteenCount == ", minSixteenCount) 
-        print ("minThirtyTwoCount == ", minThirtyTwoCount) 
-        print ("hourOneCount == ", hourOneCount) 
-        print ("hourTwoCount == ", HourTwoCount) 
-        print ("hourFourCount == ", hourFourCount) 
-        print ("hourEightCount == ", hourEightCount) 
-        print ("hourTwelveCount == ", hourTwelveCount) 
-        print ("hourTwentyFourCount == ", hourTwentyFourCount) 
 
+    checkHourOne(holdRow, 1)
+    checkHourTwo(holdRow, 1)
+    checkHourFour(holdRow, 1)
+    checkHourTwelve(holdRow, 1)
     checkHourTwentyFour(holdRow, 1)
-    """
-        time = row[2]
-        kick = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
-        if kick.hour != butt.hour:
-            with open('hour.csv', 'a') as w:
-                w.write(','.join([str(x) for x in row]))
-                w.write("\n")
-                count += 1
-            butt = kick
-            
-    print ((60*24*7)+ (60*9))
-    print (count)
-    """
-    #    if time_object.hour == 0:
-   #         print (row)
-            #if time_object.hour == 0:
-                #print (row)
-        #if time[17] == 0 & time[18] == 0:
-        #        print(time)
-        #print(row[2])
 
+    #print out how many candles were created for each timeframe
 
+    minOneCount = getMinOne()
+    minTwoCount = getMinTwo()
+    minFourCount = getMinFour()
+    minEightCount = getMinEight()
+    minSixteenCount = getMinSixteen()
+    minThirtyTwoCount = getMinThirtyTwo()
+    hourOneCount = getHourOne()
+    hourTwoCount = getHourTwo()
+    hourFourCount = getHourFour()
+    hourTwelveCount = getHourTwelve()
+    hourTwentyFourCount = getHourTwentyFour()
 
+    print ("minOneCount == ", minOneCount) 
+    print ("minTwoCount == ", minTwoCount) 
+    print ("minFourCount == ", minFourCount) 
+    print ("minEightCount == ", minEightCount) 
+    print ("minSixteenCount == ", minSixteenCount) 
+    print ("minThirtyTwoCount == ", minThirtyTwoCount) 
+    print ("hourOneCount == ", hourOneCount) 
+    print ("hourTwoCount == ", hourTwoCount) 
+    print ("hourFourCount == ", hourFourCount) 
+    print ("hourTwelveCount == ", hourTwelveCount) 
+    print ("hourTwentyFourCount == ", hourTwentyFourCount) 
 
+    print ("minOneCount/2 = ", minOneCount/2, " /4 = ", minOneCount/4, " /8 = ", minOneCount/8)
+    print ("minOneCount/16 = ", minOneCount/16, " /32 = ", minOneCount/32, " /60 = ", minOneCount/60)
+    print ("minOneCount/120 = ", minOneCount/120, " /240 = ", minOneCount/240, " /720 = ", minOneCount/720)
+    

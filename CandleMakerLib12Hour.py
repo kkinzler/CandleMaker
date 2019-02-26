@@ -56,7 +56,7 @@ def initHourTwelve(row):
 #getPrice() takes as args, row: containing a list of 6 elements. [0] number, [1] currency pair, 
 #                               [2] time, [3] bid, [4] ask, [5] the letter 'D'
 #                    returns: 1 for success or 0 for fail
-def checkHourTwelve(row):
+def checkHourTwelve(row, lastRow):
 
     if row == 0:
         print ("row empty could not check mon one data")
@@ -70,7 +70,7 @@ def checkHourTwelve(row):
     
 
     currentTime = getTime(row, 0, 1)    
-    if (currentTime >= hourTwelve + 12 or (hourTwelve == 16 and currentTime < hourTwelve) or (hourTwelve >= 12 and currentTime < hourTwelve)):
+    if (currentTime >= hourTwelve + 12 or lastRow == 1 or (hourTwelve >= 12 and currentTime < hourTwelve)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
@@ -126,3 +126,6 @@ def setBounds(row):
         hourTwelveLow = price
     if hourTwelveHigh < price:
         hourTwelveHigh = price
+
+def getHourTwelve():
+    return hourTwelveCount

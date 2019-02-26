@@ -70,7 +70,7 @@ def checkMinFour(row):
     
 
     currentTime = getTime(row, 1, 0)    
-    if (currentTime >= minFour + 4 or (minFour >= 50 and currentTime < minFour)):
+    if (currentTime >= minFour + 4 or (minFour >= 55 and currentTime < minFour)):
 
         #simple check to see how many gaps there are in the data. 
         #probably need to come back and create more thorough checks
@@ -126,3 +126,6 @@ def setBounds(row):
         minFourLow = price
     if minFourHigh < price:
         minFourHigh = price
+
+def getMinFour():
+    return minFourCount
