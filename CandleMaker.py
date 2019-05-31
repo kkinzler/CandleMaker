@@ -6,6 +6,7 @@
 #1. take a csv file and parse the info 
 #2. use pandas or some other http client to store info in some
 #dataframe
+#   -need to learn pandas. That should make this a little easier.
 
 import csv
 from datetime import datetime
